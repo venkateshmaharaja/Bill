@@ -1,0 +1,46 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 23 Jan, 2020, 1:14:20 PM
+    Author     : AV-IT-PC534
+*/
+
+body {
+    background: linear-gradient;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 16px;
+}
+
+* {
+    box-sizing: border-box;
+}
+*:focus {
+    outline: none;
+}
+
+
+
+.card-form__inner {
+    background:;
+    box-shadow: 0 30px 60px 0 rgba(90, 116, 148, 0.4);
+    border-radius: 10px;
+    padding: 15px;
+    padding-top: 50px;
+    width:75%;
+    margin-left:160px;
+}
+@media screen and (max-width: 480px) {
+    .card-form__inner {
+        padding: 25px;
+        padding-top: 100px;
+    }
+}
+@media screen and (max-width: 360px) {
+    .card-form__inner {
+        padding: 15px;
+        padding-top: 165px;
+    }
+}
