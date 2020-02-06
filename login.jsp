@@ -112,7 +112,7 @@
                             </div>
                             </br>
                             <div class="d-flex justify-content-center mt-3 login_container">
-                                <button type="button" name="button" class="btn login_btn">Login</button>
+                                <input type="submit" name="submit" class="btn login_btn">
                             </div>
                         </form>
                     </div>
