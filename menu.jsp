@@ -2,12 +2,16 @@
     <head>
         <style>
             body {
-                font-family: 'Lato', sans-serif;
+                font-family: fantasy;
                 margin: 0px;
             }
             .mnu {
                 overflow: hidden;
                 background: #0275d8;
+                /*font-family: 'Vollkorn Regular', serif;*/
+               /*font-family: 'Crimson Text', serif;*/
+               font-family: 'BioRhyme', serif;
+                 text-decoration: none;
             }
             .mnu a {
                 float: left;
@@ -17,6 +21,7 @@
                 font-size: 15px;
                 padding: 20px 20px;
                 text-decoration: none;
+               
             }
             .mnu a:hover {
                 font-weight: bolder;
@@ -31,6 +36,7 @@
                 height: auto;
                 padding: 20px 20px;
                 display: inline-block;
+                /*text-decoration: none;*/
             }
             .ddown {
                 float: right;
@@ -152,9 +158,12 @@
             }
         </script>
         <title>BILLING</title>
-        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <!--<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">-->
         <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Crimson+Text&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=BioRhyme&display=swap" rel="stylesheet">
         
 <!--          <link rel="stylesheet" href="../bill/Bootstrap files/3.4.1/css/cardstyle.css">
         <link rel="stylesheet" href="../bill/Bootstrap files/3.4.1/css/dropdown.css">-->
