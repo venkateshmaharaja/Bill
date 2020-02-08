@@ -34,29 +34,51 @@
         switch (mnu_no) {
             case 1: {
                 String Category_name = request.getParameter("Category_name");
-                PreparedStatement ps = con.prepareStatement("INSERT INTO `category_master`(`category_name`, `added_date`) VALUES (?,?)");
-                ps.setString(1, Category_name.toUpperCase());
-                ps.setString(2, currDate);
-                try {
-                    result_pop = ps.executeUpdate();
-
-                } catch (SQLException sq) {
-                    response.setContentType("text/plain");
-                    result = "SQL Error.....";
-                    response.getWriter().write(result);
+                if (!Category_name.equals("")) {
+                    PreparedStatement ps = con.prepareStatement("INSERT INTO `category_master`(`category_name`, `added_date`) VALUES (?,?)");
+                    ps.setString(1, Category_name.toUpperCase());
+                    ps.setString(2, currDate);
+                    try {
+                        result_pop = ps.executeUpdate();
+                    } catch (SQLException sq) {
+                        response.setContentType("text/plain");
+                        result = "SQL Error.....";
+                        response.getWriter().write(result);
+                    }
                 }
+                break;
+
             }
+
+            case 2: {
+                String Brand_name = request.getParameter("Brand_name");
+                if (!Brand_name.equals("")) {
+                    PreparedStatement ps = con.prepareStatement("INSERT INTO `brand_master`(`brand_name`, `added_date`) VALUES (?,?)");
+                    ps.setString(1, Brand_name.toUpperCase());
+                    ps.setString(2, currDate);
+                    try {
+                        result_pop = ps.executeUpdate();
+                    } catch (SQLException sq) {
+                        response.setContentType("text/plain");
+                        result = "SQL Error.....";
+                        response.getWriter().write(result);
+                    }
+                }
+                break;
+            }
+
             default:
-//                        out.println("<script type=\"text/javascript\">");
-//                        out.println("alert('No Menu added');");
-////                        out.write("setTimeout(function(){window.location.href='/RCTS/master_input.jsp'},1);");
-//                        out.println("</script>");
+                out.println("<script type=\"text/javascript\">");
+                out.println("alert('No Menu added');");
+//                        out.write("setTimeout(function(){window.location.href='/RCTS/master_input.jsp'},1);");
+                out.println("</script>");
         }
         if (result_pop > 0) {
             response.setContentType("text/plain;charset=UTF-8");
-            result = "OK"+'&';
+            result = "OK" + '&';
             response.getWriter().write(result);
         }
+
     } catch (Exception ex) {
         response.setContentType("text/plain");
         result = "Error.....";
