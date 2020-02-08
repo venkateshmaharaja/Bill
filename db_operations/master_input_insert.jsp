@@ -24,9 +24,7 @@
     </head>
     <body>
         <%
-
             try {
-
                 String user_name = (String) session.getAttribute("name");
 
                 db_connection obj = new db_connection();
