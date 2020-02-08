@@ -29,35 +29,5 @@
     <body>
         <%@include file="menu.jsp"%>
         <%@include file="master_input.jsp"%>
-        
-         <!-- ****START**1* Category ADD-->
-<!--        <div class="container">
-            <form action="db_operations/master_input_insert.jsp?mnu=1" method="post">
-            <form action="#" method="post">
-                <div class="modal fade" id="Category" role="dialog">
-                    <div class="modal-dialog modal-sm">
-                         Modal content
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title" align="center">Add Category</h4>
-                            </div>
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <label for="Category_name">Category Name</label>
-                                    <input type="text" name="Category_name"  required="" class="form-control" id="Category_name">
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <input type="submit" value="Submit" class="btn btn-success"></input>
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>-->
-        <!-- ****END**1* Category ADD-->
-
     </body>
 </html>
