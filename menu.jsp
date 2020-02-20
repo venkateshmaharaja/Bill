@@ -1,208 +1,256 @@
+<%-- 
+    Document   : menu_1
+    Created on : 15 Feb, 2020, 9:29:44 AM
+    Author     : AV-IT-PC408
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
     <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+        <link rel="stylesheet" href="Bootstrap files/3.4.1/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=BioRhyme&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css">
         <style>
-            body {
-                font-family: fantasy;
-                margin: 0px;
-            }
-            .mnu {
-                overflow: hidden;
-                background: #0275d8;
-                /*font-family: 'Vollkorn Regular', serif;*/
-               /*font-family: 'Crimson Text', serif;*/
-               font-family: 'BioRhyme', serif;
-                 text-decoration: none;
-            }
-            .mnu a {
-                float: left;
-                display: block;
-                color: #fff;
-                text-align: center;
-                font-size: 15px;
-                padding: 20px 20px;
-                text-decoration: none;
-               
-            }
-            .mnu a:hover {
-                font-weight: bolder;
-                
-            }
-            .mnu .icon {
-                display: none;
-            }
-            .logo{
-                position: relative;
-                width: auto;
-                height: auto;
-                padding: 20px 20px;
-                display: inline-block;
-                /*text-decoration: none;*/
-            }
-            .ddown {
-                float: right;
-                overflow: hidden;
-            }
-            .ddown .drop {
-                font-size: 16px; 
-                border: none;
-                outline: none;
-                color: #fff;
-                padding: 20px 20px;
-                background-color: inherit;
-                font-family: inherit;
+            #menu ul {
                 margin: 0;
+                padding: 0;
+                font-family: BioRhyme;
+                background-color: #0275d8;
             }
-            .drop .fa-angle-double-up,
-            .drop:hover .fa-angle-double-down {
+            #menu{
+                font-size: 15px;
+            }
+
+            #tm:checked + .main-menu {
+                display: block;
+            }
+
+            #menu input[type="checkbox"], 
+            #menu ul span.drop-icon {
                 display: none;
             }
-            .drop:hover .fa-angle-double-up {
-                display: inline;
+
+            #menu li, 
+            #toggle-menu, 
+            #menu .sub-menu {
+                border-style: solid;
+                border-color: rgba(0, 0, 0, .05);
             }
-            .drop-content {
-                display: none;
-                position: absolute;
-                background-color: #404040;
-                min-width: 150px;
-                z-index: 1;
-                border-radius: 8px;
+
+            #menu li, 
+            #toggle-menu {
+                border-width: 0 0 1px;
             }
-            .drop-content a {
-                float: none;
+
+            #menu .sub-menu {
+                background-color: #444;
+                border-width: 1px 1px 0;
+                margin: 0 1em;
+            }
+
+            #menu .sub-menu li:last-child {
+                border-width: 0;
+            }
+            #menu li{
                 color: black;
-                padding: 20px, 16px;
-                text-decoration: none;
-                display: block;
-                text-align: left;
+                /*font-weight: bolder;*/
+
             }
-            .ddown:hover .drop-content {
+            #menu li, 
+            #toggle-menu, 
+            #menu a {
+                position: relative;
                 display: block;
-                top: 58px;
+                color: black;
+                text-shadow: 1px 1px 0 rgba(0, 0, 0, .125);
+            }
+
+            #menu, 
+            #toggle-menu {
+                background-color: #09c;
+            }
+
+            #toggle-menu, 
+            #menu a {
+                padding: 1em 1.5em;
+            }
+
+            #menu a {
+                transition: all .125s ease-in-out;
+                -webkit-transition: all .125s ease-in-out;
+            }
+
+            #menu a:hover {
+                background-color: #0275d8;
+                font-weight: bolder;
+                color: white;
+            }
+
+            #menu .sub-menu {
+                display: none;
                 background-color: #e9ecef;
-            }
-            .drop-content a:hover {
-                background-color: #FFFFFF;
+                border-radius:10px;
                 color: black;
             }
-            @media screen and (max-width: 768px) {
-                .mnu a {
-                    display: none;
-                }
-                .mnu a.icon {
-                    float: right;
-                    display: block;
-                }
-                .logo{
-                    display: none;
-                    float: left;
-                    display: block;
-                }
+
+            #menu input[type="checkbox"]:checked + .sub-menu {
+                display: block;
+                color: black;
+            }
+
+            #menu .sub-menu a:hover {
+                /*color: inherit;*/
+            }
+
+            #toggle-menu .drop-icon, 
+            #menu li label.drop-icon {
+                position: absolute;
+                right: 1.5em;
+                top: 1.25em;
+            }
+
+            #menu label.drop-icon, #toggle-menu span.drop-icon {
+                border-radius: 50%;
+                width: 1em;
+                height: 1em;
+                text-align: center;
+                background-color: rgba(0, 0, 0, .125);
+                text-shadow: 0 0 0 transparent;
+                color: rgba(255, 255, 255, .75);
 
             }
-            @media screen and (max-width: 768px) {
-                .logo{
+
+            #menu .drop-icon {
+                line-height: 1;
+            }
+
+
+
+
+            @media only screen and (max-width: 64em) and (min-width: 52.01em) {
+                #menu li {
+                    width: 33.333%;
+                }
+
+                #menu .sub-menu li {
+                    width: auto;
+                }
+            }
+
+            @media only screen and (min-width: 52em) {
+                #menu .main-menu {
+                    display: block;
+                }
+
+                #toggle-menu, 
+                #menu label.drop-icon {
                     display: none;
                 }
-                .mnu.res {
-                    position: relative;
-                }
-                .mnu.res a.icon {
-                    position: absolute;
-                    right: 0;
-                    top: 0;
-                }
-                .logo{
-                   /*display: none;*/
-                }
-                .mnu.res a {
-                    float: none;
-                    display: block;
-                    text-align: left;
-                    padding-left: 10px;
-                    border-top: 1px solid #fff;
 
+                #menu ul span.drop-icon {
+                    display: inline-block;
                 }
-                .mnu.res .ddown {
+
+                #menu li {
+                    float: left;
+                    border-width: 0 1px 0 0;
+                }
+
+                #menu .sub-menu li {
                     float: none;
                 }
-                .mnu.res .drop-content {
-                    position: relative;
-                    top:0px;
-                    padding-left: 20px;
-                    padding-right: 20px;
-                    background-color: #fff;
-                    border-radius: 20px;
+
+                #menu .sub-menu {
+                    border-width: 0;
+                    margin: 0;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    width: 12em;
+                    z-index: 3000;
                 }
-                .mnu.res .drop-content a {
-                    border-top: 1px solid #FFFFFF;
+
+                #menu .sub-menu, 
+                #menu input[type="checkbox"]:checked + .sub-menu {
+                    display: none;
                 }
-                .mnu.res .ddown .drop {
+
+                #menu .sub-menu li {
+                    border-width: 0 0 1px;
+                }
+
+                #menu .sub-menu .sub-menu {
+                    top: 0;
+                    left: 100%;
+                }
+
+                #menu li:hover > input[type="checkbox"] + .sub-menu {
                     display: block;
-                    width: 100%;
-                    text-align: left;
-                    border-top: 1px solid #fff;
-                }
-                .mnu.res .ddown .drop:hover {
-                    background-color: #496E91;
                 }
             }
         </style>
-        <script>
-            function displayMenu() {
-                var x = document.getElementById("nav");
-                if (x.className === "mnu") {
-                    x.className += " res";
-                } else {
-                    x.className = "mnu";
-                }
-            }
-        </script>
-        <title>BILLING</title>
-        <!--<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">-->
-        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Crimson+Text&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=BioRhyme&display=swap" rel="stylesheet">
-        
-<!--          <link rel="stylesheet" href="../bill/Bootstrap files/3.4.1/css/cardstyle.css">
-        <link rel="stylesheet" href="../bill/Bootstrap files/3.4.1/css/dropdown.css">-->
-        <link rel="stylesheet" href="../bill/Bootstrap files/3.4.1/css/bootstrap.min.css">
-        <script src="../bill/Bootstrap files/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="../bill/Bootstrap files/3.4.1/js/bootstrap.min.js"></script>
 
     </head>
     <body>
-
-        <div class="mnu" id= "nav">
-            <a href="#Home">HOME</a>
-            <a class="logo" style="color:whitesmoke;font-size: 18px;font-weight: bolder;">AMUL PRODUCTS<i class="fal fa-cow"></i></a>
-            <div class="ddown">
-                <a class="drop" href="#Home">ACCOUNTING 
-                    <i class="fa fa-angle-double-down"></i>
-                    <i class="fa fa-angle-double-up"></i>
-                </a>
-                <div class="drop-content">
-                    <a href="#Vendor">Vendor&emsp;&emsp;<i class="fa fa-plus-square"></i></a>
-                    <a href="#Customer">Customer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-plus-square"></i></a>
-                    <a href="#Purchase">Purchase&emsp;&nbsp;&nbsp;<i class="fa fa-plus-square"></i></a>
-                    <a href="#Sales">Sales&emsp;&emsp;&emsp;&nbsp;<i class="fa fa-plus-square"></i></a>
-                </div>
-            </div>
-            <div class="ddown">
-                <a class="drop" href="#Home">INVENTORY 
-                    <i class="fa fa-angle-double-down"></i>
-                    <i class="fa fa-angle-double-up"></i>
-                </a>
-                <div class="drop-content">
-                    <a href="#" data-toggle="modal" data-target="#Category">Category&emsp;<i class="fa fa-plus-circle"></i></a >
-                    <a href="#" data-toggle="modal" data-target="#Brand">Brand&emsp;&emsp;&nbsp;&nbsp;<i class="fa fa-plus-circle"></i></a>
-                    <a href="#" data-toggle="modal" data-target="#plants">Item&emsp;&emsp;&emsp;<i class="fa fa-plus-circle"></i></a>
-                </div>
-            </div>
-
-            <a href="javascript:void(0);" class="icon" onclick="displayMenu()"><i class="fa fa-bars"></i></a>
-        </div>
-
+        <nav id="menu">
+            <!--<label for="tm" id="toggle-menu">Navigation <span class="drop-icon">▾</span></label>-->
+            <input type="checkbox" id="tm">
+            <ul class="main-menu clearfix">
+                <li><a href="#"style="text-decoration: none;padding-right:100px; font-size: 18px; color: whitesmoke; font-weight: bolder;">AMUL PRODUCTS</a></li>
+                <li><a href="#" style="text-decoration: none; color: whitesmoke;">Inventory 
+                        <span class="drop-icon">▾</span>
+                        <label title="Toggle Drop-down" class="drop-icon" for="sm1">▾</label>
+                    </a>
+                    <input type="checkbox" id="sm1">
+                    <ul class="sub-menu">
+                        <li><a href="#"style="text-decoration: none;" data-toggle="modal" data-target="#Category">Category<i class="fa fa-plus-circle" style="float: right;"></i></a ></li>
+                        <li><a href="#" style="text-decoration: none;" data-toggle="modal" data-target="#Brand">Brand<i class="fa fa-plus-circle" style="float: right;"></i></a></li>
+                        <li><a href="#" style="text-decoration: none;" data-toggle="modal" data-target="#Product">Product&emsp;&emsp;&nbsp;&nbsp;<i class="fa fa-plus-circle" style="float: right;"></i></a></li>
+                        <li><a href="#" style="text-decoration: none;">Item 2.2
+                                <span class="drop-icon">▾</span>
+                                <label title="Toggle Drop-down" class="drop-icon" for="sm2">▾</label>
+                            </a>
+                            <input type="checkbox" id="sm2">
+                            <ul class="sub-menu">
+                                <li><a href="#" style="text-decoration: none;">Item 2.2.1</a></li>
+                                <li><a href="#" style="text-decoration: none;">Item 2.2.2</a></li>
+                                <li><a href="#" style="text-decoration: none;">Item 2.2.3</a></li>
+                            </ul>
+                        </li>
+                        <!--<li><a href="#" style="text-decoration: none;">Item 3.4</a></li>-->
+                    </ul>
+                </li>
+                <li><a href="#" style="text-decoration: none; color: whitesmoke;">Accounting 
+                        <span class="drop-icon">▾</span>
+                        <label title="Toggle Drop-down" class="drop-icon" for="sm3">▾</label>
+                    </a>
+                    <input type="checkbox" id="sm3">
+                    <ul class="sub-menu">
+                        <li><a href="#" style="text-decoration: none;">Item 2.1</a></li>
+                        <li><a href="#" style="text-decoration: none;">Item 2.2
+                                <span class="drop-icon">▾</span>
+                                <label title="Toggle Drop-down" class="drop-icon" for="sm4">▾</label>
+                            </a>
+                            <input type="checkbox" id="sm4">
+                            <ul class="sub-menu">
+                                <li><a href="#" style="text-decoration: none;">Item 2.2.1</a></li>
+                                <li><a href="#" style="text-decoration: none;">Item 2.2.2</a></li>
+                                <li><a href="#" style="text-decoration: none;">Item 2.2.3</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" style="text-decoration: none;">Item 3.4</a></li>
+                    </ul>
+                </li>
+                <!--<li><a href="#" style="text-decoration: none;">Another Sample</a></li>-->
+                <!--<li> <a href="#" style="text-decoration: none;">Another Sample</a></li>-->
+                <li style="float: right;"><a href="#"><i class="fa fa-close" style="color: white;"></i></a></li>
+            </ul>
+        </nav>
+        <!-- End -->
     </body>
 </html>
