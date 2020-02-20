@@ -154,7 +154,7 @@
                 $.ajax({
                     type: "POST",
                     url: "ajax_process_jsp/db_process/db_insert.jsp",
-                    data: {Brand_name:$("#Brand_name").val(), mnu: "2"},
+                    data: {Brand_name: $("#Brand_name").val(), mnu: "2"},
                     dataType: 'text',
                     success: function (data) {
 //                        alert(data);
@@ -190,14 +190,14 @@
 //                                              select and put into editing text area **  END **
 
             $("#btn_edit_Brand_submit").click(function () {
-                var  sel_Edit_Brand_name= $("#sel_Edit_Brand_name").val();
+                var sel_Edit_Brand_name = $("#sel_Edit_Brand_name").val();
                 var Edit_Brand_name = $("#Edit_Brand_name").val();
                 var check;
 //                alert("selected = " + sel_Edit_Brand_name + " editing =" + Edit_Brand_name);
                 $.ajax({
                     type: "POST",
                     url: "ajax_process_jsp/db_process/db_update.jsp",
-                    data: {sel_Edit_Brand_name :$("#sel_Edit_Brand_name").val(), Edit_Brand_name :$("#Edit_Brand_name").val(), mnu: "2"},
+                    data: {sel_Edit_Brand_name: $("#sel_Edit_Brand_name").val(), Edit_Brand_name: $("#Edit_Brand_name").val(), mnu: "2"},
                     dataType: 'text',
                     success: function (data) {
 //                        alert(data);
@@ -359,8 +359,74 @@
     <!-- ****END**2* Brand Menu-->
 
 
-    <%
-        } catch (Exception ex) {
-            out.print(ex);
-        }%>
+
+    <!-- ****START**3* Product Menu-->
+
+    <div class="container">
+        <div class="modal fade" id="Product" role="dialog">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title" align="center">Add Products</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="Prod_Category_name">Category Name</label>
+                                    <select type="text" name="Prod_Category_name" style="font-weight: bolder;"  required="" class="form-control" id="Prod_Category_name">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="col-6">
+                                        <label for="Prod_Brand_name">Brand Name</label>
+                                        <select type="text" name="Prod_Brand_name" style="font-weight: bolder;"  required="" class="form-control" id="Prod_Brand_name">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <span id="brand_add_alert" style="font-weight: bolder;"></span>
+                        </div>
+                            <div class="modal-footer">
+                                <input type="submit" value="Submit" id="btn_product_submit" class="btn btn-success"></input>
+                            </div>
+                        </div>
+                        <div class="modal-header">
+                            <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                            <h4 class="modal-title" align="center">Edit Brand</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="Edit_Brand_name">Brand Name</label>
+                                <select type="text" name="sel_Edit_Brand_name" style="font-weight: bolder;" required="" class="form-control" id="sel_Edit_Brand_name">
+                                    <option></option>
+
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="Edit_Brand_name">Brand Name</label>
+                                <input type="text" name="Edit_Brand_name" style="font-weight: bolder;" required="" class="form-control" id="Edit_Brand_name">
+                            </div>
+                        </div>
+                        <span id="Brand_edit_add_alert" style="font-weight: bolder;"></span>
+                        <div class="modal-footer">
+                            <input type="submit" value="Submit" id="btn_edit_Brand_submit" class="btn btn-success"></input>
+                            <button type="button" class="btn btn-danger" id="btn_close" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- ****END**3* Product Menu-->
+
+
+        <%
+            } catch (Exception ex) {
+                out.print(ex);
+            }%>
 </html>
