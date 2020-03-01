@@ -15,43 +15,46 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Master Input</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../bill/Bootstrap files/3.4.1/css/cardstyle.css">
-        <link rel="stylesheet" href="../bill/Bootstrap files/3.4.1/css/dropdown.css">
-        <link rel="stylesheet" href="../bill/Bootstrap files/3.4.1/css/bootstrap.min.css">
-        <script src="../bill/Bootstrap files/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="../bill/Bootstrap files/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="bootstrap files/3.4.1/css/cardstyle.css">
+        <link rel="stylesheet" href="bootstrap files/3.4.1/css/dropdown.css">
+        <link rel="stylesheet" href="bootstrap files/3.4.1/css/bootstrap.min.css">
+        <script src="bootstrap files/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="bootstrap files/3.4.1/js/bootstrap.min.js"></script>
+
+
+
     </head>
     <script>
 
         $(document).ready(function () {
             let totel_data = [], data, total = 0;
 
-//for click close buttom restart window ***START***
+            //for click close buttom restart window ***START***
             $(".close").click(function () {
                 location.reload();
-//                alert("close");
+                //                alert("close");
             });
             $(".btn-danger").click(function () {
                 location.reload();
-//                alert("close");
+                //                alert("close");
             });
 
-//for click close buttom restart window ***END***
+            //for click close buttom restart window ***END***
 
 
 
-//####   START         OPERATION FOR MENU ** 1 CATEGORY **  ####
-//            
-//for clear the alert category ***START***
+            //####   START         OPERATION FOR MENU ** 1 CATEGORY **  ####
+            //            
+            //for clear the alert category ***START***
             $("#Category_name").keyup(function () {
                 document.getElementById("category_add_alert").innerHTML = "";
             });
-//for clear the alert category ***END***
+            //for clear the alert category ***END***
 
             //****** START *******Category_Add//
             $("#btn_category_add").click(function () {
                 var Category_name = $("#Category_name").val();
-//                alert(Category_name);
+                //                alert(Category_name);
                 var check;
                 $.ajax({
                     type: "POST",
@@ -59,8 +62,8 @@
                     data: {Category_name: $("#Category_name").val(), mnu: "1"},
                     dataType: 'text',
                     success: function (data) {
-//                        alert(data);
-//                        console.log(data);
+                        //                        alert(data);
+                        //                        console.log(data);
                         totel_data = data.split("&");
                         for (let i = 0; i < totel_data.length - 1; i++) {
                             check = totel_data[i];
@@ -83,28 +86,28 @@
 
 
             //******START*******Category_Edit//
-//                                              select and put into editing text area **  START **
+            //                                              select and put into editing text area **  START **
             $("#sel_Edit_Category_name").change(function () {
                 var sel_Edit_Category_name = $("#sel_Edit_Category_name").val();
-//                alert(sel_Edit_Category_name);
+                //                alert(sel_Edit_Category_name);
                 document.getElementById("Edit_Category_name").value = sel_Edit_Category_name;
             });
-//                                              select and put into editing text area **  END **
+            //                                              select and put into editing text area **  END **
 
 
             $("#btn_edit_category_submit").click(function () {
                 var sel_Edit_Category_name = $("#sel_Edit_Category_name").val();
                 var Edit_Category_name = $("#Edit_Category_name").val();
                 var check;
-//                alert("selected = " + sel_Edit_Category_name + " editing =" + Edit_Category_name);
+                //                alert("selected = " + sel_Edit_Category_name + " editing =" + Edit_Category_name);
                 $.ajax({
                     type: "POST",
                     url: "ajax_process_jsp/db_process/db_update.jsp",
                     data: {sel_Edit_Category_name: $("#sel_Edit_Category_name").val(), Edit_Category_name: $("#Edit_Category_name").val(), mnu: "1"},
                     dataType: 'text',
                     success: function (data) {
-//                        alert(data);
-//                        console.log(data);
+                        //                        alert(data);
+                        //                        console.log(data);
                         totel_data = data.split("&");
                         for (let i = 0; i < totel_data.length - 1; i++) {
                             check = totel_data[i];
@@ -122,15 +125,15 @@
                     }
                 })
             });
-//for clear the alert category ***START***
+            //for clear the alert category ***START***
             $("#Edit_Category_name").keyup(function () {
                 document.getElementById("category_edit_add_alert").innerHTML = "";
             });
-//for clear the alert category ***END***
+            //for clear the alert category ***END***
 
             //******END*******Category_Edit//
 
-// ###     END      OPERATION FOR MENU ** 1 CATEGORY **   ####
+            // ###     END      OPERATION FOR MENU ** 1 CATEGORY **   ####
 
 
 
@@ -138,18 +141,18 @@
 
 
 
-///####   START         OPERATION FOR MENU **  BRAND **  ####
-//            
-//for clear the alert brand ***START***
+            ///####   START         OPERATION FOR MENU **  BRAND **  ####
+            //            
+            //for clear the alert brand ***START***
             $("#Brand_name").keyup(function () {
                 document.getElementById("brand_add_alert").innerHTML = "";
             });
-//for clear the alert brand ***END***
+            //for clear the alert brand ***END***
 
             //****** START *******Brand_Add//
             $("#btn_brand_add").click(function () {
                 var Category_name = $("#Brand_name").val();
-//                alert(Category_name);
+                //                alert(Category_name);
                 var check;
                 $.ajax({
                     type: "POST",
@@ -157,8 +160,8 @@
                     data: {Brand_name: $("#Brand_name").val(), mnu: "2"},
                     dataType: 'text',
                     success: function (data) {
-//                        alert(data);
-//                        console.log(data);
+                        //                        alert(data);
+                        //                        console.log(data);
                         totel_data = data.split("&");
                         for (let i = 0; i < totel_data.length - 1; i++) {
                             check = totel_data[i];
@@ -181,27 +184,27 @@
 
 
             //******START*******Brand Edit//
-//                                              select and put into editing text area **  START **
+            //                                              select and put into editing text area **  START **
             $("#sel_Edit_Brand_name").change(function () {
                 var sel_Edit_Brand_name = $("#sel_Edit_Brand_name").val();
-//                alert(sel_Edit_Brand_name);
+                //                alert(sel_Edit_Brand_name);
                 document.getElementById("Edit_Brand_name").value = sel_Edit_Brand_name;
             });
-//                                              select and put into editing text area **  END **
+            //                                              select and put into editing text area **  END **
 
             $("#btn_edit_Brand_submit").click(function () {
                 var sel_Edit_Brand_name = $("#sel_Edit_Brand_name").val();
                 var Edit_Brand_name = $("#Edit_Brand_name").val();
                 var check;
-//                alert("selected = " + sel_Edit_Brand_name + " editing =" + Edit_Brand_name);
+                //                alert("selected = " + sel_Edit_Brand_name + " editing =" + Edit_Brand_name);
                 $.ajax({
                     type: "POST",
                     url: "ajax_process_jsp/db_process/db_update.jsp",
                     data: {sel_Edit_Brand_name: $("#sel_Edit_Brand_name").val(), Edit_Brand_name: $("#Edit_Brand_name").val(), mnu: "2"},
                     dataType: 'text',
                     success: function (data) {
-//                        alert(data);
-//                        console.log(data);
+                        //                        alert(data);
+                        //                        console.log(data);
                         totel_data = data.split("&");
                         for (let i = 0; i < totel_data.length - 1; i++) {
                             check = totel_data[i];
@@ -219,15 +222,15 @@
                     }
                 })
             });
-//for clear the alert Brand ***START***
+            //for clear the alert Brand ***START***
             $("#Edit_Brand_name").keyup(function () {
                 document.getElementById("Brand_edit_add_alert").innerHTML = "";
             });
-//for clear the alert Brand ***END***
+            //for clear the alert Brand ***END***
 
             //******END*******Brand_edit//
 
-// ###     END      OPERATION FOR MENU ** 1 Brand **   ####       
+            // ###     END      OPERATION FOR MENU ** 1 Brand **   ####       
         });
     </script>
     <%
@@ -239,7 +242,7 @@
             //        DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
             //        Date dateobj = new Date();
             //        String currDate = df.format(dateobj);
-    %>
+%>
 
     <!-- ****START**1* Category Menu-->
     <div class="container">
@@ -390,43 +393,102 @@
                             </div>
                             <span id="brand_add_alert" style="font-weight: bolder;"></span>
                         </div>
-                            <div class="modal-footer">
-                                <input type="submit" value="Submit" id="btn_product_submit" class="btn btn-success"></input>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="Prod_bar_code">Barcode No</label>
+                                    <input type="text" name="Prod_bar_code" style="font-weight: bolder;"  required="" class="form-control" id="Prod_bar_code">
+                                </div>
                             </div>
-                        </div>
-                        <div class="modal-header">
-                            <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
-                            <h4 class="modal-title" align="center">Edit Brand</h4>
-                        </div>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="Edit_Brand_name">Brand Name</label>
-                                <select type="text" name="sel_Edit_Brand_name" style="font-weight: bolder;" required="" class="form-control" id="sel_Edit_Brand_name">
-                                    <option></option>
-
-                                </select>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="col-6">
+                                        <label for="Prod_name">Product Name</label>
+                                        <input type="text" name="Prod_name" style="font-weight: bolder;"  required="" class="form-control" id="Prod_name">
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="Edit_Brand_name">Brand Name</label>
-                                <input type="text" name="Edit_Brand_name" style="font-weight: bolder;" required="" class="form-control" id="Edit_Brand_name">
-                            </div>
+                            <span id="prod_add_alert" style="font-weight: bolder;"></span>
                         </div>
-                        <span id="Brand_edit_add_alert" style="font-weight: bolder;"></span>
+                         <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="prod_hsn_code">HSN Code</label>
+                                    <input type="text" name="prod_hsn_code" style="font-weight: bolder;"  required="" class="form-control" id="prod_hsn_code">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="col-6">
+                                        <label for="Prod_gst">Product GST %</label>
+                                        <input type="text" name="Prod_gst" style="font-weight: bolder;"  required="" class="form-control" id="Prod_gst">
+                                    </div>
+                                </div>
+                            </div>
+                            <span id="prod_add_alert" style="font-weight: bolder;"></span>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="prod_p_rate">Purchase Rate</label>
+                                    <input type="text" name="prod_p_rate" style="font-weight: bolder;"  required="" class="form-control" id="prod_p_rate">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <div class="col-4">
+                                        <label for="prod_s_rate">Sales Rate</label>
+                                        <input type="text" name="prod_s_rate" style="font-weight: bolder;"  required="" class="form-control" id="prod_p_rate">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <div class="col-4">
+                                        <label for="Prod_uom">UOM</label>
+                                        <input type="text" name="Prod_uom" style="font-weight: bolder;"  required="" class="form-control" id="Prod_uom">
+                                    </div>
+                                </div>
+                            </div>
+                            <span id="prod_add_alert" style="font-weight: bolder;"></span>
+                        </div>
                         <div class="modal-footer">
-                            <input type="submit" value="Submit" id="btn_edit_Brand_submit" class="btn btn-success"></input>
-                            <button type="button" class="btn btn-danger" id="btn_close" data-dismiss="modal">Close</button>
+                            <input type="submit" value="Submit" id="btn_product_submit" class="btn btn-success"></input>
                         </div>
+                    </div>
+                    <div class="modal-header">
+                        <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                        <h4 class="modal-title" align="center">Edit Brand</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="Edit_Brand_name">Brand Name</label>
+                            <select type="text" name="sel_Edit_Brand_name" style="font-weight: bolder;" required="" class="form-control" id="sel_Edit_Brand_name">
+                                <option></option>
+
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="Edit_Brand_name">Brand Name</label>
+                            <input type="text" name="Edit_Brand_name" style="font-weight: bolder;" required="" class="form-control" id="Edit_Brand_name">
+                        </div>
+                    </div>
+                    <span id="Brand_edit_add_alert" style="font-weight: bolder;"></span>
+                    <div class="modal-footer">
+                        <input type="submit" value="Submit" id="btn_edit_Brand_submit" class="btn btn-success"></input>
+                        <button type="button" class="btn btn-danger" id="btn_close" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-        <!-- ****END**3* Product Menu-->
+<!-- ****END**3* Product Menu-->
 
 
-        <%
-            } catch (Exception ex) {
-                out.print(ex);
-            }%>
+<%
+    } catch (Exception ex) {
+        out.print(ex);
+    }%>
 </html>
